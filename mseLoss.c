@@ -8,8 +8,6 @@ float mseLoss(float weight, float bias) {
     float label[] = {18, 15, 18, 16, 15, 14, 24};
     float predicted[7] = {}; // predicted value using y' = b + w * x
 
-    float b = bias;         // bias
-    float w = weight;       // weight
     float mseLoss = -1;     // MSE loss
     int numberOfValues;     // Length of the array
     int i;                  // index
@@ -22,7 +20,7 @@ float mseLoss(float weight, float bias) {
 
     // Calculates the predicted values using the current weights and biases passed to mseLoss as arguments
     for (j = 0; j < numberOfValues; j++) {
-        predicted[j] = b + (w * features[j]);
+        predicted[j] = bias + (weight * features[j]);
         printf("%.3f | ", predicted[j]);
     }
     printf("\n");
