@@ -5,7 +5,7 @@ int main() {
     
     float loss = mseLoss(0, 0);
 
-    printf("%f", loss);
+    printf("MSE Loss: %f", loss);
     
     return 0;
 }
