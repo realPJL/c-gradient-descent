@@ -3,9 +3,9 @@
 
 int main() {
     
-    float result = mseLoss(0, 0);
+    float loss = mseLoss(0, 0);
 
-    printf("%f", result);
+    printf("%f", loss);
     
     return 0;
 }
