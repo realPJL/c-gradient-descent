@@ -5,6 +5,6 @@
 #define MSELOSS_H
 
 /* Function to calculate the MSE Loss */
-float mseLoss(float features[], float label[], float weight, float bias, int numberOfValues);
+float mseLoss(float features[], float label[], float predicted[], float weight, float bias, int numberOfValues);
 
 #endif   
