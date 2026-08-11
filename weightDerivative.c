@@ -6,12 +6,12 @@
 #include "weightDerivative.h"
 
 float weightDerivative(float predictedValue[], float actualValue[], float features[], int numberOfValues) {
-    float sum;
-    float error[numberOfValues];
-    int i;
-    float result;
-    float errorFeature[numberOfValues];
-    float weightDerivative;
+    float sum;                          // Sum of all errors * 2 * features
+    float error[numberOfValues];        // Array containing all calculated errors
+    int i;                              // Index
+    float result;                       // Result being returned to caller
+    float errorFeature[numberOfValues]; // Array containing all error * 2 * features
+    float weightDerivative;             // Actual calculated weightDerivative
     
     sum = 0;
 
@@ -37,11 +37,9 @@ float weightDerivative(float predictedValue[], float actualValue[], float featur
         sum = sum + errorFeature[i];
     }
     i = 0;
-    printf("Sum: %.1f\n", sum);
 
     // Calculates the actual weight derivative
     weightDerivative = sum / numberOfValues;
-    printf("Weight Derivative: %.1f\n", weightDerivative);
 
     result = weightDerivative;
 
