@@ -1,7 +1,10 @@
+// Taken from Brave Search AI summary
+// Cited source: https://stackoverflow.com/questions/13435134/include-other-c-programs
+
 #ifndef MSELOSS_H
 #define MSELOSS_H
 
 /* Function to calculate the MSE Loss */
-float mseLoss(float weight, float bias);
+float mseLoss(float features[], float label[], float weight, float bias, int numberOfValues);
 
 #endif   
