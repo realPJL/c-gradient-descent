@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include "mseLoss.h"
 #include "weightDerivative.h"
+#include "biasDerivative.h"
 
 int controller(float features[], float label[], float weight, float bias, int numberOfValues) {
     float loss;
-    float weightChange;
+    float weightDeri;
+    float biasDeri;
     int i;
     float predictedValues[numberOfValues];
 
@@ -18,10 +20,12 @@ int controller(float features[], float label[], float weight, float bias, int nu
 
     // Calculates MSE Loss
     loss = mseLoss(features, label, predictedValues, weight, bias, numberOfValues);
-    weightChange = weightDerivative(predictedValues, label, features, numberOfValues);
+    weightDeri = weightDerivative(predictedValues, label, features, numberOfValues);
+    biasDeri = biasDerivative(predictedValues, label, numberOfValues);
     
     printf("MSE Loss: %f\n", loss);
-    printf("Weight Derivative: %f\n", weightChange);
+    printf("Weight Derivative: %f\n", weightDeri);
+    printf("Bias Derivative: %f\n", biasDeri);
 
     return 0;
 }
