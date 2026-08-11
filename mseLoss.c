@@ -2,21 +2,15 @@
 
 #include <stdio.h>
 #include "mseLoss.h"
+#include "weightDerivative.h"
 
-float mseLoss(float weight, float bias) {
-    float features[] = {3.5, 3.69, 3.44, 3.43, 4.34, 4.42, 2.37};
-    float label[] = {18, 15, 18, 16, 15, 14, 24};
+float mseLoss(float features[], float label[], float weight, float bias, int numberOfValues) {
     float predicted[7] = {}; // predicted value using y' = b + w * x
-
     float mseLoss = -1;     // MSE loss
-    int numberOfValues;     // Length of the array
     int i;                  // index
     int j;                  // index
     int temp;               // temp var used for calculating MSE loss
     int interumResult;      // interem result of (actual value - predicted value)^2
-
-    /* numberOfValues = sizeof(features) / sizeof(features[0]); */
-    numberOfValues = 7;
 
     // Calculates the predicted values using the current weights and biases passed to mseLoss as arguments
     for (j = 0; j < numberOfValues; j++) {
@@ -36,6 +30,8 @@ float mseLoss(float weight, float bias) {
     }
 
     mseLoss = mseLoss / numberOfValues;
+
+    weightDerivative(predicted, label, features, numberOfValues);
 
     return mseLoss;
 }
