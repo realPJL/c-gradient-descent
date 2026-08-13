@@ -15,10 +15,10 @@ float mseLoss(float features[], float label[], float predicted[], float weight, 
     // sum of all (actual value - predicted value)^2 devided by number of values
     for (i = 0; i < numberOfValues; i++) {
         temp = label[i] - predicted[i];
-        printf("Temp: %d\n", temp);
+        /* printf("Temp: %d\n", temp); */
         interumResult = temp * temp;
         mseLoss = mseLoss + interumResult;
-        printf("MSE after: %f\n", mseLoss);
+        /* printf("MSE after: %f\n", mseLoss); */
     }
 
     mseLoss = mseLoss / numberOfValues;
