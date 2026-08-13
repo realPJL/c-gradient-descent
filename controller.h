@@ -5,6 +5,6 @@
 #define CONTROLLER_H
 
 /* Function to act as the controller. Calls mseLoss(), weightDerivative(), biasDerivative() */
-int controller(float features[], float label[], float weight, float bias, int numberOfValues, float learningRate, int maxIterations);
+int controller(float features[], float label[], float startingWeight, float startingBias, int numberOfValues, float learningRate, int maxIterations);
 
 #endif   
