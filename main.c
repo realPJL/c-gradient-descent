@@ -8,17 +8,19 @@ int main() {
     float startingWeight;
     float startingBias;
     float learningRate;
+    int maxIterations;
 
     numberOfValues = sizeof(features) / sizeof(features[0]);
     startingWeight = 0;
     startingBias = 0;
     learningRate = 0.01;
+    maxIterations = 2;
 
     printf("Number of Values: %d\n", numberOfValues);
     printf("Starting Weight: %.3f\n", startingWeight);
     printf("Starting Bias: %.3f\n", startingBias);
 
-    controller(features, label, startingWeight, startingBias, numberOfValues, learningRate);
+    controller(features, label, startingWeight, startingBias, numberOfValues, learningRate, maxIterations);
     
     return 0;
 }
