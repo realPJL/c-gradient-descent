@@ -18,19 +18,19 @@ float biasDerivative(float predictedValue[], float actualValue[], int numberOfVa
     // Calculates the error via predicted value - actual value
     for (i = 0; i < numberOfValues; i++) {
         error[i] = predictedValue[i] - actualValue[i];
-        printf("Error: %.1f \n", error[i]);
+        /* printf("Error: %.1f \n", error[i]); */
     }
     i = 0;
-    printf("\n");
-    printf("\n");
+    /* printf("\n");
+    printf("\n"); */
 
     // Calculates Error * 2
     for (i = 0; i < numberOfValues; i++) {
         errorFeature[i] = error[i] * 2;
-        printf("Error * 2: %.1f\n", errorFeature[i]);
+        /* printf("Error * 2: %.1f\n", errorFeature[i]); */
     }
     i = 0;
-    printf("\n");
+    /* printf("\n"); */
 
     // Calculates the sum of indexes of errorFeature[]
     for (i = 0; i < numberOfValues; i++) {
