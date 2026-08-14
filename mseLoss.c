@@ -23,7 +23,5 @@ float mseLoss(float features[], float label[], float predicted[], float weight, 
 
     mseLoss = mseLoss / numberOfValues;
 
-    weightDerivative(predicted, label, features, numberOfValues);
-
     return mseLoss;
 }
