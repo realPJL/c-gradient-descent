@@ -14,7 +14,7 @@ int main() {
     startingWeight = 0;
     startingBias = 0;
     learningRate = 0.01;
-    maxIterations = 20;
+    maxIterations = 8000;
 
     printf("Number of Values: %d\n", numberOfValues);
     printf("Starting Weight: %.3f\n", startingWeight);
