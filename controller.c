@@ -52,7 +52,7 @@ float calculateGradientDescent(float features[], float label[], float *weight, f
     printf("\n");
 
     // Calculates MSE Loss
-    loss = mseLoss(features, label, predictedValues, *weight, *bias, numberOfValues);
+    loss = mseLoss(label, predictedValues, numberOfValues);
     weightGradient = weightDerivative(predictedValues, label, features, numberOfValues);
     biasGradient = biasDerivative(predictedValues, label, numberOfValues);
 
