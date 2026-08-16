@@ -3,30 +3,38 @@
 #include "weightDerivative.h"
 #include "biasDerivative.h"
 
-void calculateGradientDescent(float features[], float label[], float *weight, float *bias, int numberOfValues, float learningRate);
+float calculateGradientDescent(float features[], float label[], float *weight, float *bias, int numberOfValues, float learningRate);
 
 int controller(float features[], float label[], float startingWeight, float startingBias, int numberOfValues, float learningRate, int maxIterations) {
     int iteration;
     float weight;
     float bias;
+    float currentLoss;
+    int i;
+    float losses[maxIterations];
+    float lossGoal;
 
     weight = startingWeight;
     bias = startingBias;
+    lossGoal = 0.3;
 
 
     for (iteration = 0; iteration < maxIterations; iteration++) {
         printf("\n\n---ITERATION: %d---\n\n", iteration);
         
-        calculateGradientDescent(features, label, &weight, &bias, numberOfValues, learningRate);
+        currentLoss = calculateGradientDescent(features, label, &weight, &bias, numberOfValues, learningRate);
 
-        // if last mse losses are around current mse loss -> break;
+        if (currentLoss <= lossGoal) {
+            break;
+        }
+
     }
 
     return 0;
 }
 
 // Calculates weight and bias resulting in the smallest loss. Executes multiple times.
-void calculateGradientDescent(float features[], float label[], float *weight, float *bias, int numberOfValues, float learningRate) {
+float calculateGradientDescent(float features[], float label[], float *weight, float *bias, int numberOfValues, float learningRate) {
     int i;
     float predictedValues[numberOfValues];
     float loss;
@@ -63,4 +71,6 @@ void calculateGradientDescent(float features[], float label[], float *weight, fl
     printf("Weight change: %.3f\n", weightChange);
     printf("New Weight: %.3f\n", *weight);
     printf("New Bias: %.3f\n", *bias);
+
+    return loss;
 }
